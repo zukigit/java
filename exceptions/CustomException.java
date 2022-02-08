@@ -1,42 +1,38 @@
 class CustomException {
 
 	public static void main(String[] args) {
-		highLevel();
-		try {
-			int i = 10 / 0;
+		highLevel();	
+	}
+
+	static void highLevel() {
+		try{
+			middleLevel();
+		} catch(MyException e) {
+			e.getMessage();
+		}
+	}
+
+	static void middleLevel() {
+		try{
+			lowLevel();
 		} catch(Exception e) {
-			System.out.println(e.getMessage());
+			throw new MyException("don't divide by zero");
 		}
 	}
 
-	public static void highLevel() {
-		try {
-			middleLevel(0);
-		} catch (AppException e) {
-			System.out.println(e.getMessage());
-		}
-	}
-
-	public static void middleLevel(int num) {
-		if (num == 0) {
-			throw new AppException("it can't be zero!");
-		}
-	}
-
-	public static void lowLevel() {
-		System.out.println("hi i'm exception!");
+	static void lowLevel() throws Exception{
+		int i = 10 / 0 ;
+		System.out.println("Hi I'm low level method");
 	}
 }
 
-class AppException extends RuntimeException {
+class MyException extends RuntimeException {
 
-	AppException(String name) {
-		super(name);	
+	MyException(String message) {
+		super(message);
 	}
 
-	AppException(String name, Throwable cause) {
-		super(name, cause);
+	MyException(Throwable cause) {
+		super(cause);
 	}
-
 }
-
