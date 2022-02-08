@@ -1,14 +1,15 @@
 class CustomException {
 
 	public static void main(String[] args) {
-		highLevel();	
+		highLevel();
+		System.out.println("end main");
 	}
 
 	static void highLevel() {
 		try{
 			middleLevel();
 		} catch(MyException e) {
-			e.getMessage();
+			e.printStackTrace();
 		}
 	}
 
@@ -16,7 +17,7 @@ class CustomException {
 		try{
 			lowLevel();
 		} catch(Exception e) {
-			throw new MyException("don't divide by zero");
+			throw new MyException("don't divide by zero", e);
 		}
 	}
 
@@ -34,5 +35,9 @@ class MyException extends RuntimeException {
 
 	MyException(Throwable cause) {
 		super(cause);
+	}
+
+	MyException(String message, Throwable cause) {
+		super(message, cause);
 	}
 }
