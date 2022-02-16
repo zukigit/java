@@ -4,6 +4,14 @@ class AfterGenerics {
 
 	public static void main(String[] args) {
 		Container c = new Container<String>();
+
+		c.add("zuki");
+		System.out.println(c.getSize());
+		System.out.println(Arrays.toString(c.getAll()));
+
+		Container c1 = new Container<Integer>();
+		c1.add(1);
+		System.out.println(Arrays.toString(c1.getAll()));
 	}
 }
 
