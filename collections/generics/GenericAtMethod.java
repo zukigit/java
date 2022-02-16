@@ -7,6 +7,7 @@ class GenericAtMethod {
 
 class GenericFactory {
 
+        //i want to ask this method // why we need to add more generic(<K, V>) infront of Pair<K, V>
 	public static <K, V> Pair<K, V> generatePair (K key, V value) {
 		return new Pair(key, value);
 	}
