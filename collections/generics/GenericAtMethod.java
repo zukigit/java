@@ -1,7 +1,12 @@
+import javax.swing.text.PlainDocument;
+
 class GenericAtMethod {
 
 	public static void main(String[] args) {
-		
+		Pair<Integer, Integer> pair = GenericFactory.generatePair(12, 19);
+		Pair pair2 = new Pair<>("zuki", 21);
+		pair.get();
+		pair2.get();
 	}
 }
 
