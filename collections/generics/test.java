@@ -1,15 +1,15 @@
 import java.util.Arrays;
 
-public class test {
+public class Test {
     public static void main(String[] args) {
-        genericClass<?> gc ; //ဒီcode မှာအကုန် အဆင်ပြေပြီး generic wild card ထည့်လိုက်မှသာ required: CAP#1, found: String ဆိုပြီး error တက်နေပါတယ်။ ဘာကြောင့်တက်တာလဲ။ အဲ့လိုရေးလို့မရဘူးလား ခင်ဗျ။
-        gc = new genericClass<String>();
+        GenericClass<?> gc ; //ဒီcode မှာအကုန် အဆင်ပြေပြီး generic wild card ထည့်လိုက်မှသာ required: CAP#1, found: String ဆိုပြီး error တက်နေပါတယ်။ ဘာကြောင့်တက်တာလဲ။ အဲ့လိုရေးလို့မရဘူးလား ခင်ဗျ။
+        gc = new GenericClass<String>();
         gc.add("re");
         System.out.println(Arrays.toString(gc.getAll()));
     }
 }
 
-class genericClass<T> {
+class GenericClass<T> {
 
     @SuppressWarnings("unchecked")
     T[] array = (T[])new Object[0];
